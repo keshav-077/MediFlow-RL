@@ -1,0 +1,34 @@
+spec_version: 1
+name: MediFlow-RL
+type: space
+runtime: fastapi
+app: server.app:app
+port: 8000
+tasks:
+  - id: easy
+    name: Easy Tier
+    description: Easy pharmaceutical delivery with basic constraints.
+    difficulty: easy
+    reward_function: easy
+    grader: graders.basic_grader:EasyGrader
+
+  - id: moderate
+    name: Moderate Tier
+    description: Medium complexity with heatwaves and thermal risk.
+    difficulty: moderate
+    reward_function: moderate
+    grader: graders.moderate_grader:ModerateGrader
+
+  - id: hard
+    name: Hard Tier
+    description: Hard scenarios with multi-shipment conflicts and tight deadlines.
+    difficulty: hard
+    reward_function: hard
+    grader: graders.hard_grader:HardGrader
+
+  - id: extreme
+    name: Extreme Tier
+    description: Extreme scenarios with organ priority and cascading failures.
+    difficulty: extreme
+    reward_function: extreme
+    grader: graders.hard_emergency:ExtremeGrader
